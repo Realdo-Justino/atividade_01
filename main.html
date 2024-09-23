@@ -44,8 +44,6 @@
         let inputField = document.getElementById("user-input")
 
         if(inputField.value != '') {
-          console.log(inputField.value);
-
           let newMessage = document.createElement("div");
           newMessage.classList.add("message");
           newMessage.classList.add("user-message");
@@ -62,6 +60,8 @@
 
           let chat = document.getElementById("chat");
           chat.appendChild(newMessage);
+
+          chat.scrollTop = chat.scrollHeight;
 
           inputField.value = '';
           inputField.focus();
