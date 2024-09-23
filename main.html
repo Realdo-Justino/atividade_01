@@ -10,7 +10,7 @@
       <header>
         <h1>Atendimento on-line</h1>
       </header>
-      <div class = "chat">
+      <div class = "chat" id = "chat">
         <div class ="message attendant-message">
           <strong>Atendente diz:</strong>
           <p class="msg-chat">Blabla blabla blabla</p>
@@ -45,6 +45,24 @@
 
         if(inputField.value != '') {
           console.log(inputField.value);
+
+          let newMessage = document.createElement("div");
+          newMessage.classList.add("message");
+          newMessage.classList.add("user-message");
+
+          let message = document.createElement("p");
+          message.classList.add("msg-chat");
+          message.textContent = inputField.value;
+
+          let staticHtml = document.createElement("strong");
+          staticHtml.innerText = 'Você diz:';
+
+          newMessage.appendChild(staticHtml);
+          newMessage.appendChild(message);
+
+          let chat = document.getElementById("chat");
+          chat.appendChild(newMessage);
+
           inputField.value = '';
           inputField.focus();
         }
