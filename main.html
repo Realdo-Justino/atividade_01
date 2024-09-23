@@ -28,13 +28,29 @@
           <p class ="msg-chat">Blabla blabla blabla</p>
         </div>
       </div>
-      <form>
+      <form id="input-form" method="post">
         <input
-            type= "Text"
+            id = "user-input"
+            type = "Text"
             placeholder = "Digite sua mensagem..."
         />
         <button>ENVIAR</button>
       </form>
     </div>
+    <script>
+      function sendUserMessage(event) {
+        event.preventDefault();
+
+        let inputField = document.getElementById("user-input")
+
+        if(inputField.value != '') {
+          console.log(inputField.value);
+          inputField.value = '';
+          inputField.focus();
+        }
+      }
+
+      document.getElementById("input-form").addEventListener("submit",sendUserMessage);
+    </script>
   </body>
 </html>
